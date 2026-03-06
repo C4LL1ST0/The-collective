@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "minipages",
+  "info": {
+    "singularName": "minipage",
+    "pluralName": "minipages",
+    "displayName": "minipage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tname": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "figures": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

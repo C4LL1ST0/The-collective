@@ -1,26 +1,28 @@
 'use client';
 
-import { Minipage } from '../lib/types';
 import Navigation from './Navigation';
 import HeroSection from './HeroSection';
 import { useState } from 'react';
+import { Presentable } from '../lib/structures';
 
 interface props {
-  minipages: Minipage[];
+  content: Presentable[];
 }
 
-export default function MainPage({ minipages }: props) {
+export default function MainPage({ content }: props) {
   const [pageNum, setPageNum] = useState(1);
 
   return (
-    <Navigation
-      pagination={{
-        pageNum: pageNum,
-        setPageNum: setPageNum,
-        maxPages: minipages.length,
-      }}
-    >
-      <HeroSection pages={minipages} pageNum={1} />
-    </Navigation>
+    <section className={'h-screen w-screen'}>
+      <Navigation
+        pagination={{
+          pageNum: pageNum,
+          setPageNum: setPageNum,
+          maxPages: content.length,
+        }}
+      >
+        <HeroSection pageNum={1} content={content} />
+      </Navigation>
+    </section>
   );
 }

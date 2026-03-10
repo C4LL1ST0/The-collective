@@ -9,7 +9,7 @@ interface props {
 
 export default function MainNavigation({ children, pagination }: props) {
   return (
-    <div className={'h-screen w-screen p-4'}>
+    <div className={'h-full w-full p-4'}>
       <div className={'h-full w-full bg-black flex justify-center items-center gap-3'}>
         <div className="h-full w-1/5 flex flex-col flex-nowrap self-start justify-items-start gap-3">
           <button

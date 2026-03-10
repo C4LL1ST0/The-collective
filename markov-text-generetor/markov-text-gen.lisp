@@ -44,7 +44,7 @@
   (prepare-table)
 
   ;; navazani make-text na tlacitko
-  (connector:make-input :name "generate-b" :type :button :action #'make-text)
+  (connector:make-input :name "generate-b" :type :button :action #'make-text :output :text)
   (connector:make-input :name "train-b" :type :button :action #'prepare-table)
 
   (loop :while t :do (lambda () nil)))

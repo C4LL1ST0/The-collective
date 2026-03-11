@@ -8,7 +8,7 @@ export default async function Home() {
   const minipages = await getMinipages();
   
   const content = initContent(minipages, runningServices);
-  
+  console.log(content);
   return(
     <MainPage content={content}/>
   );

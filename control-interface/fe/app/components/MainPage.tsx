@@ -20,8 +20,9 @@ export default function MainPage({ content }: props) {
           setPageNum: setPageNum,
           maxPages: content.length,
         }}
+        redirect={content[pageNum-1].service?.name}
       >
-        <HeroSection pageNum={1} content={content} />
+        <HeroSection pageNum={pageNum} content={content} />
       </Navigation>
     </section>
   );

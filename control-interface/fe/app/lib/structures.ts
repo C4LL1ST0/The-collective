@@ -16,15 +16,20 @@ export function initContent(pages?: Minipage[], services?: Service[]) {
   
   if(services){
     for (const service of services) {
-      if (presentablesDict.has(service.name)) {
-        const presentable = presentablesDict?.get(service.name);
+      const name = service.name.split(':')[0];
+      if (presentablesDict.has(name)) {
+        const presentable = presentablesDict?.get(name);
         if (!presentable) continue;
         presentable.service = service;
       } else {
-        presentablesDict.set(service.name, { service });
+        presentablesDict.set(name, { service });
       }
     }
   }
   
   return [...presentablesDict.values()];
+}
+
+export function hasService(presentable: Presentable){
+  return !!presentable.service;
 }

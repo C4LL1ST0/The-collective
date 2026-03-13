@@ -6,10 +6,11 @@ import { Dispatch, ReactNode, SetStateAction } from 'react';
 interface props {
   pagination: { pageNum: number; setPageNum: Dispatch<SetStateAction<number>>; maxPages: number };
   redirect?: string;
+  servicePort?: number
   children: ReactNode;
 }
 
-export default function MainNavigation({ children, redirect: interfaceLink, pagination }: props) {
+export default function MainNavigation({ children, redirect, servicePort, pagination }: props) {
   return (
     <div className={'h-full w-full p-4'}>
       <div className={'h-full w-full bg-black flex justify-center items-center gap-3'}>
@@ -28,9 +29,9 @@ export default function MainNavigation({ children, redirect: interfaceLink, pagi
               'bg-amber-500 h-full w-full rounded-3xl text-black font-bold text-4xl relative'
             }
             onClick={(e) => {
-              if (!interfaceLink) e.preventDefault();
+              if (!redirect) e.preventDefault();
             }}
-            href={'/' + interfaceLink}
+            href={{pathname: '/' + redirect, query: {port: servicePort}}}
           >
             <span className="absolute bottom-4 right-6">VSTOUPIT</span>
           </Link>
@@ -40,7 +41,7 @@ export default function MainNavigation({ children, redirect: interfaceLink, pagi
           <div className={'w-full h-1/12 flex flex-nowrap self-start justify-evenly gap-3'}>
             <div
               className={
-                'bg-amber-500 flex-1 h-full rounded-3xl text-black font-bold text-4xl relative'
+                'bg-amber-400 flex-1 h-full rounded-3xl text-black font-bold text-4xl relative'
               }
             >
               <span className="absolute bottom-4 right-6">
@@ -52,7 +53,7 @@ export default function MainNavigation({ children, redirect: interfaceLink, pagi
                 if (pagination.pageNum > 1) pagination.setPageNum(pagination.pageNum - 1);
               }}
               className={
-                'bg-amber-500 flex-5 h-full rounded-3xl text-black font-bold text-4xl relative'
+                'bg-amber-400 flex-5 h-full rounded-3xl text-black font-bold text-4xl relative'
               }
             >
               <span className="absolute bottom-4 right-6">ZPĚT</span>
@@ -64,7 +65,7 @@ export default function MainNavigation({ children, redirect: interfaceLink, pagi
                   pagination.setPageNum(pagination.pageNum + 1);
               }}
               className={
-                'bg-amber-500 flex-5 h-full rounded-3xl text-black font-bold text-4xl relative'
+                'bg-amber-400 flex-5 h-full rounded-3xl text-black font-bold text-4xl relative'
               }
             >
               <span className="absolute bottom-4 right-6">DALŠÍ</span>

@@ -21,6 +21,7 @@ export default function MainPage({ content }: props) {
           maxPages: content.length,
         }}
         redirect={content[pageNum-1].service?.name}
+        servicePort={content[pageNum-1].service?.port}
       >
         <HeroSection pageNum={pageNum} content={content} />
       </Navigation>

@@ -18,11 +18,13 @@ export interface AliveDTO {
   data: boolean;
 }
 
+export interface ServiceInfo {
+  name: string;
+  inputtable: Input[];
+}
+
 export interface InfoDTO {
-  data: {
-    name: string;
-    inputtable: Input[];
-  }
+  data: ServiceInfo
 }
 
 export interface Input {

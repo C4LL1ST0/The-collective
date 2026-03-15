@@ -21,9 +21,9 @@ export default function ServiceInterfaceHeader({serviceName}: props) {
       </div>
 
       <div className={'h-full w-full flex flex-col gap-3'}>
-        <div className={'h-1/2'}></div>
+        <div className={'h-1/2'}/>
         <div className={'h-1/2 flex gap-3'}>
-          <div className={'h-full flex-3 bg-amber-400 rounded-l-3xl'}></div>
+          <div className={'h-full flex-4 bg-amber-400 rounded-l-3xl'}></div>
           <span className={'text-4xl text-amber-200 font-bold flex-3'}>{serviceName}</span>
           <div className={'h-full flex-1 bg-amber-400 rounded-r-3xl'}></div>
         </div>

@@ -20,6 +20,7 @@ export interface AliveDTO {
 
 export interface ServiceInfo {
   name: string;
+  port: number;
   inputtable: Input[];
 }
 
@@ -30,7 +31,7 @@ export interface InfoDTO {
 export interface Input {
   name: string;
   type: 'BUTTON';
-  output: 'TEXT';
+  output: 'TEXT' | 'NONE';
 }
 
 export interface Service{

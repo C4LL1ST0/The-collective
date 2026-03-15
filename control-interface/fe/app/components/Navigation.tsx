@@ -53,7 +53,7 @@ export default function MainNavigation({ children, redirect, servicePort, pagina
                 if (pagination.pageNum > 1) pagination.setPageNum(pagination.pageNum - 1);
               }}
               className={
-                'bg-amber-400 flex-5 h-full rounded-3xl text-black font-bold text-4xl relative'
+                'bg-amber-400 flex-5 h-full rounded-3xl text-black font-bold text-4xl relative cursor-grab'
               }
             >
               <span className="absolute bottom-4 right-6">ZPĚT</span>
@@ -65,7 +65,7 @@ export default function MainNavigation({ children, redirect, servicePort, pagina
                   pagination.setPageNum(pagination.pageNum + 1);
               }}
               className={
-                'bg-amber-400 flex-5 h-full rounded-3xl text-black font-bold text-4xl relative'
+                'bg-amber-400 flex-5 h-full rounded-3xl text-black font-bold text-4xl relative cursor-grab'
               }
             >
               <span className="absolute bottom-4 right-6">DALŠÍ</span>

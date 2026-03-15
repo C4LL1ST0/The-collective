@@ -45,6 +45,6 @@
 
   ;; navazani make-text na tlacitko
   (connector:make-input :name "generate-b" :type :button :action #'make-text :output :text)
-  (connector:make-input :name "train-b" :type :button :action #'prepare-table)
+  (connector:make-input :name "train-b" :type :button :action #'prepare-table :output :none)
 
   (sleep most-positive-fixnum))

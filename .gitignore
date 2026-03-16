@@ -125,3 +125,4 @@ $RECYCLE.BIN/
 ## lisp
 **/*.fasl
 */bin/*
+miniprograms/*/bin/*

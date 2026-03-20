@@ -6,7 +6,7 @@ import { Dispatch, ReactNode, SetStateAction } from 'react';
 interface props {
   pagination: { pageNum: number; setPageNum: Dispatch<SetStateAction<number>>; maxPages: number };
   redirect?: string;
-  servicePort?: number
+  servicePort?: number;
   children: ReactNode;
 }
 

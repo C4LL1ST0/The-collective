@@ -1,0 +1,15 @@
+services:
+    be:
+        build:
+            context: .
+            dockerfile: lisp/.Dockerfile
+        ports:
+            - "3001-3100:3001-3100"
+    cms:
+        build: control-interface/cms
+        ports:
+            - "1337:1337"
+    fe:
+        build: control-interface/fe
+        ports:
+            - "3000:3000"

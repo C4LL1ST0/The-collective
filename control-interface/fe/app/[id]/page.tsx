@@ -11,7 +11,14 @@ export default async function ServicePage({
   const { id } = await params;
   const { port } = (await searchParams) ?? {};
 
-  const serviceInfo = (await getInfo(parseInt(port!))).data;
+  let serviceInfo;
+  if(port){
+    serviceInfo = (await getInfo(parseInt(port))).data;
+  } 
+
+  if(!serviceInfo){
+    return <div>Not found</div>;
+  }
 
   return <div className="w-screen h-screen"><ServiceInterface serviceInfo={serviceInfo}/></div>;
 }

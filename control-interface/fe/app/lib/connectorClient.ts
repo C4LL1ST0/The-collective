@@ -14,6 +14,7 @@ export async function serviceIsAlive(port = parseInt(process.env.FIRST_SERVICE_P
 }
 
 export async function getInfo(port = parseInt(process.env.FIRST_SERVICE_PORT ?? '3001')) {
+  console.log(port);
   if (!serviceIsAlive(port)) throw new Error('Requested service is down.');
 
   const url = (process.env.BE_URL ?? 'http://localhost') + ':' + port + '/info';

@@ -9,7 +9,7 @@ RUN sbcl \
   --quit
 
 RUN mkdir -p /programs
-COPY . /programs/
+COPY lisp /programs/
 
 RUN mkdir -p /quicklisp/local-projects
 RUN cp -r /programs/connector /quicklisp/local-projects/

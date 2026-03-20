@@ -6,6 +6,17 @@ interface MainHeroSectionProps {
 }
 
 export default function HeroSection({ content, pageNum }: MainHeroSectionProps) {
+
+  if(content.length === 0){
+    return (
+      <div className={'w-full h-full flex flex-col justify-start items-start'}>
+        <div className={'w-full rounded-3x flex flex-col items-start p-10 gap-6'}>
+          <span className={'font-bold text-4xl'}>Žádný obsah není k dispozici.</span>
+        </div>
+      </div>
+    );
+  }
+
   if (content[pageNum - 1].page) {
     return (
       <div className={'w-full h-full flex flex-col justify-start items-start p-10'}>
@@ -17,7 +28,7 @@ export default function HeroSection({ content, pageNum }: MainHeroSectionProps) 
                 <img
                   key={i}
                   className={'w-2/3'}
-                  src={process.env.NEXT_PUBLIC_STRAPI_BASE_URL + fig.url}
+                  src={process.env.IMAGE_BASE_URL + fig.url} 
                   alt={fig.caption}
                 />
               );

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { pressButton, pressTextButton } from '../lib/connectorClient';
 import { Input, ServiceInfo } from '../lib/types';
 import ServiceInterfaceHeader from './ServiceInterfaceHeader';
 
@@ -13,21 +12,23 @@ export default function ServiceInterface({ serviceInfo }: props) {
   const [outputs, setOutputs] = useState(new Map<string, string[]>());
 
   const handleButtonClick = async (input: Input) => {
-    if (input.output === 'TEXT') {
-      const text = await pressTextButton(input.name, serviceInfo.port);
+    const res = await fetch(`/api/press-button/${serviceInfo.port}?button-name=${input.name}`);
+    let text: string;
 
-      setOutputs((prev) => {
-        const newMap = new Map(prev);
-        let oldArr = prev.get(input.name) ?? [];
-        if(oldArr.length > 3) oldArr = oldArr.slice(3);
-        const newArr = [...oldArr, text];
-        newMap.set(input.name, newArr);
-        return newMap;
-      });
+    if (input.output === 'TEXT') {
+      text = await res.text();
     } else if (input.output === 'NONE') {
-      await pressButton(input.name, serviceInfo.port);
+      text = res.ok ? 'ok' : 'failed';
     }
-    console.log(outputs);
+
+    setOutputs((prev) => {
+      const newMap = new Map(prev);
+      let oldArr = prev.get(input.name) ?? [];
+      if (oldArr.length > 3) oldArr = oldArr.slice(3);
+      const newArr = [...oldArr, text];
+      newMap.set(input.name, newArr);
+      return newMap;
+    });
   };
 
   return (

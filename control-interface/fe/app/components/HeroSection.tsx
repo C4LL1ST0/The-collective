@@ -6,8 +6,7 @@ interface MainHeroSectionProps {
 }
 
 export default function HeroSection({ content, pageNum }: MainHeroSectionProps) {
-
-  if(content.length === 0){
+  if (content.length === 0) {
     return (
       <div className={'w-full h-full flex flex-col justify-start items-start'}>
         <div className={'w-full rounded-3x flex flex-col items-start p-10 gap-6'}>
@@ -28,7 +27,7 @@ export default function HeroSection({ content, pageNum }: MainHeroSectionProps) 
                 <img
                   key={i}
                   className={'w-2/3'}
-                  src={process.env.IMAGE_BASE_URL + fig.url} 
+                  src={'/api/get-minipage-images' + fig.url}
                   alt={fig.caption}
                 />
               );

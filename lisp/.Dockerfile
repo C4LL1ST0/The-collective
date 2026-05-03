@@ -1,6 +1,6 @@
 FROM debian:bookworm
 
-RUN apt update && apt install -y sbcl cl-quicklisp
+RUN apt update && apt install -y sbcl cl-quicklisp libssl3 libssl-dev build-essential
 
 RUN sbcl \
   --load /usr/share/common-lisp/source/quicklisp/quicklisp.lisp \

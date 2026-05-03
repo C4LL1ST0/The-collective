@@ -10,6 +10,7 @@ const eslintConfig = defineConfig([
       indent: ['error', 2],
       semi: ['error', 'always'],
       quotes: ['error', 'single'],
+      '@typescript-eslint/no-explicit-any': 'off'
     },
   },
   // Override default ignores of eslint-config-next.
